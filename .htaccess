@@ -1,0 +1,13 @@
+#Этот файл задает правила работы с сервером
+
+RewriteEngine On        #Включение режима смены правил
+
+    #RewriteCond %{REQUEST_FILENAME} !-f #Игнорировать файл
+    #RewriteCond %{REQUEST_FILENAME} !-d #Игнорировать каталог
+    #RewriteRule ^(.+)$ index.php?q=$1 [L,QSA]
+
+RewriteRule api/(.+)$ index.php?q=$1 [L,QSA]    #Все запросы должны начинаться с api и пернаправляются на файл index.php и имеют GET параметр q. Например: (http://apijson.loc/api/items/11)
+
+# (items/11) - Это попадет в q
+
+#https://m.habr.com/en/post/115389/ - Почитать
